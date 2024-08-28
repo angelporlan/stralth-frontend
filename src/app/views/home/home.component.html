@@ -7,9 +7,12 @@
     </div>
 </div>
 
+<img src="../../../assets/svg/loader.svg" alt="Loading..." *ngIf="isLoading" class="loader">
 
-<div class="graphic">
-    <h2>Entrenamientos en la ultima semana</h2>
-    <canvas id="myChart"></canvas>
-  </div>
-<app-navbar></app-navbar>
+<div *ngIf="!isLoading">
+    <div class="graphic">
+        <h2>Entrenamientos en la ultima semana</h2>
+        <canvas id="myChart"></canvas>
+    </div>
+    <app-navbar></app-navbar>
+</div>

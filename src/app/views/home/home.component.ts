@@ -5,11 +5,12 @@ import { RoutinesService } from '../../services/routines.service';
 import { CompletedRoutinesService } from '../../services/completed-routines.service';
 import { Router } from '@angular/router';
 import { Chart, CategoryScale, LinearScale, BarElement, BarController, Title, Tooltip, Legend } from 'chart.js';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [NavbarComponent, CommonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -19,6 +20,7 @@ export class HomeComponent implements AfterViewInit {
   completedRoutine: any;
   completedRoutineCounter: number = 0;
   chart: any;
+  isLoading = true;
 
   constructor(
     private authService: AuthService,
@@ -34,9 +36,11 @@ export class HomeComponent implements AfterViewInit {
     this.routinesService.getRoutines(this.authService.getToken()).subscribe(
       (data: any) => {
         this.routineCounter = data.length;
+        this.isLoading = false;
       },
       (error: any) => {
         console.error('Error getting routines:', error);
+        this.isLoading = false;
       }
     );
     this.completedRoutinesService.getCompletedRoutines(this.authService.getToken()).subscribe(

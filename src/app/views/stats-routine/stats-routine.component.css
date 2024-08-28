@@ -37,3 +37,23 @@ div h3 {
 h1 {
     margin: 24px 12px;
 }
+
+.loader-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 65.8px);
+}
+
+.loader {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+    margin: 20px auto; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

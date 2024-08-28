@@ -14,7 +14,8 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./create-routine.component.css']
 })
 export class CreateRoutineComponent implements OnInit {
-  routines: any[] = [];
+  routines: any;
+  isLoading = true;
 
   constructor(private RoutinesService: RoutinesService, 
     private AuthService: AuthService
@@ -28,9 +29,11 @@ export class CreateRoutineComponent implements OnInit {
     this.RoutinesService.getRoutines(this.AuthService.getToken()).subscribe(
       (data: any[]) => {
         this.routines = data;
+        this.isLoading = false;
       },
       (error: any) => {
         console.error('Error fetching routines', error);
+        this.isLoading = false;
       }
     );
   }

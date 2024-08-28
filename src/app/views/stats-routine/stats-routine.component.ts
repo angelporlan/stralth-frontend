@@ -20,6 +20,7 @@ export class StatsRoutineComponent implements AfterViewInit {
   exercisesRoutine: any;
   exerciseChartsData: any[] = [];
   routineName: string = '';
+  isLoading = true;
 
   constructor(
     private authService: AuthService,
@@ -44,10 +45,14 @@ export class StatsRoutineComponent implements AfterViewInit {
               chartData: this.generateExerciseData(exerciseName)
             };
           });
+
+          this.isLoading = false;
         }
       },
       (error: any) => {
         console.error('Error getting completed routines:', error);
+        this.isLoading = false;
+
       }
     );
   }
