@@ -1,0 +1,13 @@
+<div *ngIf="completedRoutine.length > 0">
+
+  <h1>{{routineName}}</h1>
+  <div *ngFor="let chartData of exerciseChartsData; let i = index" class="stats-div">
+    <h3>{{ chartData.exerciseName }}</h3>
+    <canvas #exerciseChart width="400" height="200"></canvas>
+  </div>
+</div>
+
+<div *ngIf="completedRoutine.length === 0">
+  <h1>No routines completed yet</h1>
+</div>
+<app-navbar></app-navbar>

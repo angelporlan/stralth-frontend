@@ -1,0 +1,15 @@
+<h1>New Routine</h1>
+<input type="text" class="routine-name" [(ngModel)]="routineName" placeholder="Routine name"> 
+<div class="exercises">
+    <div *ngFor="let exercise of exercises; let i = index; trackBy: trackByIndex" class="exercise-item">
+        <input type="text" class="exercise-name" [(ngModel)]="exercises[i]" placeholder="Exercise name"> 
+        <img src="../../../assets/svg/close.svg" (click)="removeExercise(i)" class="close-svg">
+    </div>
+    <button (click)="addExercise()" class="add-exercise">Add exercise</button>
+</div>
+
+<div class="buttons">
+    <button class="cancel-routine" (click)="cancelRoutine()">Cancel routine</button>
+    <button class="save-routine" (click)="saveRoutine()">Save routine</button>
+</div>
+<app-navbar></app-navbar>

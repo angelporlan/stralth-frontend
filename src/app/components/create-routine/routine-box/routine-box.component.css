@@ -1,0 +1,75 @@
+article{
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 0 12px;
+    width: calc(100% - 24px);
+    border-radius: 4px;
+    padding: 12px 0 12px 0;
+    margin-bottom: 12px;
+}
+
+header {
+    display: flex;
+    align-items: center;
+
+}
+
+header h2{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 0 12px 12px 12px;
+}
+
+header img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-right: 8px;
+}
+
+article p{
+    color: #cbcbcb;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0 12px 0 12px;
+}
+
+.buttons {
+    display: flex;
+    margin-top: 8px;
+    margin-right: 12px;
+}
+
+.start-routine {
+    width: 90px;
+    height: 30px;
+    background: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.stats-routine {
+    width: 90px;
+    height: 30px;
+    background: transparent;
+    border: 1px solid #cbcbcb;
+    color: #cbcbcb;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-right: 12px;
+    margin-left: auto;
+}

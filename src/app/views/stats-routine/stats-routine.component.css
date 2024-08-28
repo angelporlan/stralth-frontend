@@ -1,0 +1,39 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 65.8px;
+}
+
+
+app-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 65.8px;
+}
+
+canvas {
+    max-width: 100%;
+    max-height: 200px;
+}
+
+.stats-div {
+    padding: 12px 0;
+    margin: 0 12px;
+    border-top: 1px solid #fff;
+}
+
+
+
+div h3 {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 8px;
+}
+
+h1 {
+    margin: 24px 12px;
+}

@@ -1,0 +1,31 @@
+<div *ngIf="routine">
+    <h1>{{routine.name}}</h1>
+
+    <div *ngFor="let exercise of routine.exercises" class="exercise">
+        <p class="exercise-name">{{exercise.name}}</p>
+        <div class="sets">
+            <div class="header">
+                <p class="set">Set</p>
+                <p class="weight">Weight</p>
+                <p class="reps">Reps</p>
+            </div>
+            <app-set-box 
+                *ngFor="let set of exercise.sets; let i = index" 
+                [setNumber]="i + 1" 
+                [weight]="set.weight" 
+                [reps]="set.reps"
+                (weightChange)="set.weight = $event"
+                (repsChange)="set.reps = $event"
+                (deleteSet)="deleteSet(exercise, i)">
+            </app-set-box>
+            <p class="add-set" (click)="addSet(exercise)">Add set</p>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="cancel-button" (click)="cancelRoutine()">Cancel</button>
+        <button class="finish-button" (click)="saveRoutine()">Finish</button>
+    </div>
+</div>
+
+<app-navbar></app-navbar>

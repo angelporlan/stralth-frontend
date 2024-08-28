@@ -1,0 +1,8 @@
+<div class="set-box">
+    <p class="set-number">{{setNumber}}</p>
+    <div class="inputs" [ngClass]="{'additional-class': setNumber == 1}">
+        <input type="number" class="weight" placeholder="5" [(ngModel)]="weight" (ngModelChange)="onWeightChange($event)">
+        <input type="number" class="reps" placeholder="10" [(ngModel)]="reps" (ngModelChange)="onRepsChange($event)">
+    </div>
+    <img src="../../../../assets/svg/delete.svg" class="delete-svg" *ngIf="setNumber > 1" (click)="onDeleteSet()">
+</div>

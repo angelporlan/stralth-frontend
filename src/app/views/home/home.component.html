@@ -1,0 +1,15 @@
+<h1>Home</h1>
+<div class="user-info">
+    <img src="../../../assets/svg/user-profile.svg" alt="user-profile" class="profile-img">
+    <img src="../../../assets/svg/log-out.svg" alt="log-out" class="log-out" (click)="logout()">
+    <div class="right-zone">
+        <p class="username">{{currentUser.name}}</p>
+    </div>
+</div>
+
+
+<div class="graphic">
+    <h2>Entrenamientos en la ultima semana</h2>
+    <canvas id="myChart"></canvas>
+  </div>
+<app-navbar></app-navbar>

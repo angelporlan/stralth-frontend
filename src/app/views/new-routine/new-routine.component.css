@@ -1,0 +1,108 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 65.8px;
+}
+
+
+app-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 65.8px;
+}
+input {
+    width: calc(100% - 24px);
+    margin: 12px;
+    padding: 4px 12px 4px 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    background-color: rgb(67, 67, 67);
+    color: #cbcbcb;
+}
+
+.routine-name {
+    background: none;
+    color: #fff;
+    border-bottom: 2px solid black;
+    border-radius: 0;
+}
+
+.add-exercise {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 24px);
+    margin: 12px;
+    height: 28px;
+    background-color: #1ed050;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - 24px);
+    margin: 12px;
+}
+
+.save-routine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 28px;
+    background-color: #1ed050;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-left: 12px;
+}
+
+.cancel-routine {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 28px;
+    background: transparent;
+    color: #ff4d4d;
+    border: 1px solid #ff4d4d;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.exercise-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-svg {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+h1 {
+    margin: 24px 12px 12px 12px;
+}

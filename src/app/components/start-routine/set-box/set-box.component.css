@@ -1,0 +1,45 @@
+.set-box {
+    display: flex;
+    margin: 0 12px;
+    padding: 12px;
+}
+
+p {
+    color: white;
+    width: 100%;
+}
+
+p::after {
+    content: '-';
+    position: absolute;
+    margin-left: 24px;
+}
+
+input {
+    min-width: 45px;
+    max-width: 65px;
+    background: rgb(67, 67, 67);
+    border: none;
+    color: #fff;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.weight {
+    margin-right: 12px;
+}
+
+.inputs {
+    display: flex;
+    margin-left: 48px;
+}
+
+.delete-svg {
+    width: 20px;
+    height: 20px;
+    margin-left: 12px;
+}
+
+.additional-class {
+    margin-right: 32px;
+}

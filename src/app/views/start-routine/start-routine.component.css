@@ -1,0 +1,94 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 65.8px;
+}
+
+
+app-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 65.8px;
+}
+
+.exercise {
+    margin-top: 12px;
+}
+
+.exercise-name {
+    margin: 0 12px;
+    border-top: 1px solid #fff;
+}
+
+.buttons {
+    display: flex;
+    margin: 24px 12px;
+}
+
+.finish-button {
+    background: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    padding: 8px 0;
+
+}
+
+.cancel-button {
+    background: transparent;
+    border: 1px solid #f44336;
+    color: #f44336;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    padding: 8px 0;
+    margin-right: 12px;
+}
+
+.add-set {
+    color: #4CAF50;
+    text-align: center;
+    margin: 12px 0;
+    font-weight: 600;
+}
+
+h1 {
+    margin: 0 12px 24px 12px;
+    padding: 24px 0 0 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 12px;
+}
+
+.set {
+    margin-left: 18px;
+}
+
+.weight {
+    margin-left: auto;
+    margin-right: 38px;
+}
+
+.reps {
+    margin-right: 74px;
+}

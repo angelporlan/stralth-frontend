@@ -1,0 +1,14 @@
+<article>
+    <header>
+        <h2>{{routine.name}}</h2>
+        <img src="../../../../assets/svg/delete.svg" (click)="removeRoutine()" class="close-svg">
+    </header>
+    <p *ngFor="let exercise of routine.exercises">
+        {{exercise}}
+    </p>
+    <div class="buttons">
+        <button (click)="statsRoutine(routine._id)" class="stats-routine">Stats</button>
+
+        <button (click)="startRoutine(routine._id)" class="start-routine">Start</button>
+    </div>
+</article>

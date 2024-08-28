@@ -1,0 +1,43 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 65.8px;
+}
+
+app-navbar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 65.8px;
+}
+
+.create-routine-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 24px);
+    margin: 12px;
+    height: 28px;
+    background-color: #1ed050;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.p-not-routines {
+    color: #cbcbcb;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 12px;
+}
+
+h1 {
+    margin: 24px 12px 12px 12px;
+}
