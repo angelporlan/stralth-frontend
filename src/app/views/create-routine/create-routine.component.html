@@ -5,7 +5,8 @@
 
 <div *ngIf="!isLoading">
   <p *ngIf="routines.length === 0" class="p-not-routines">You don't have any saved routines yet. Consider creating a routine to start tracking your progress..</p>
-  <app-routine-box *ngFor="let routine of routines" [routine]="routine"></app-routine-box>
+  <app-routine-box *ngFor="let routine of routines" [routine]="routine" (deleteRoutine)="onDeleteRoutine($event)" ></app-routine-box>
 </div>
 
+<app-dialog-box *ngIf="dialogOpen" [dialogTitle]="dialogTitle" [dialogText]="dialogText" (closeDialog)="closeDialog()" (confirmDialog)="confirmDialog()"></app-dialog-box>
 <app-navbar></app-navbar>

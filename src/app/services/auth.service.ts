@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'https://stralth-backend.onrender.com/api/users';
+  private apiUrl = 'https://stralth-backend.onrender.com/api/users'; //server
+  // private apiUrl = 'http://localhost:5005/api/users'; //local
 
   constructor(private http: HttpClient) { }
 

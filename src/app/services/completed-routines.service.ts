@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class CompletedRoutinesService {
 
-  private apiUrl = 'https://stralth-backend.onrender.com/api/completed-routines';
+  private apiUrl = 'https://stralth-backend.onrender.com/api/completed-routines'; //server
+  // private apiUrl = 'http://localhost:5005/api/completed-routines'; //local
 
   constructor(private http: HttpClient) { }
 

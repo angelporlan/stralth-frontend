@@ -94,7 +94,7 @@ export class HomeComponent implements AfterViewInit {
             data: routineCounts, 
             backgroundColor: '#4CAF50', 
             borderColor: '#4CAF50',
-            borderWidth: 0, 
+            borderWidth: 2, 
             borderRadius: 8, 
             hoverBackgroundColor: '#388E3C',
             hoverBorderColor: '#388E3C',
@@ -102,6 +102,7 @@ export class HomeComponent implements AfterViewInit {
           }]
         },
         options: {
+          indexAxis: 'y', // Cambiar el eje para un gráfico de barras horizontal
           responsive: true,
           plugins: {
             legend: {
@@ -136,11 +137,14 @@ export class HomeComponent implements AfterViewInit {
                 }
               },
               grid: {
-                color: 'rgba(200, 200, 200, 0.2)' 
+                color: 'rgba(200, 200, 200, 0.2)', 
+                display: false, // Ocultar las líneas divisorias
               }
             },
             x: {
+              beginAtZero: true,
               ticks: {
+                stepSize: 1, // Asegurar que no aparezcan decimales
                 color: '#fff', 
                 font: {
                   size: 12,
@@ -148,7 +152,7 @@ export class HomeComponent implements AfterViewInit {
                 }
               },
               grid: {
-                display: false 
+                display: false // Ocultar las líneas divisorias
               }
             }
           }
@@ -156,9 +160,6 @@ export class HomeComponent implements AfterViewInit {
       });
     }
   }
-  
-  
-  
 
   getLast7Days(): string[] {
     const days = [];

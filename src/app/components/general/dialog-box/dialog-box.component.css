@@ -1,0 +1,60 @@
+dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 24px);
+    background-color: #17202a;
+}
+
+h1 {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    margin: 12px 0 0px 0;
+}
+
+p {
+    color: #cbcbcb;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 12px;
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    width: 100%;
+    margin-bottom: 12px;
+}
+
+.close-dialog {
+    width: 100%;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-inline: 12px;
+}
+
+.confirm-dialog {
+    width: 100%;
+    height: 30px;
+    background: #f44336;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-inline: 12px;
+
+}

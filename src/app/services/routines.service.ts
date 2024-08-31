@@ -6,7 +6,8 @@ import { Injectable } from '@angular/core';
 })
 export class RoutinesService {
   
-  private apiUrl = 'https://stralth-backend.onrender.com/api/routines';
+  private apiUrl = 'https://stralth-backend.onrender.com/api/routines'; //server
+  // private apiUrl = 'http://localhost:5005/api/routines'; //local
 
   constructor(private http: HttpClient) { }
 
