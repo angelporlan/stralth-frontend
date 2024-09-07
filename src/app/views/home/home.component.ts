@@ -33,12 +33,12 @@ export class HomeComponent implements AfterViewInit {
 
   ngOnInit() {
     this.currentUser = this.authService.getUserFromLocalStorage();
-    this.completedRoutine = this.completedRoutinesService.getCompletedRoutinesFromLocalStorage();
-
-    console.log('Completed routines:', this.completedRoutine);
+    this.completedRoutine = this.completedRoutinesService.getCompletedRoutinesFromLocalStorage() || [];
+  
     this.completedRoutineCounter = this.completedRoutine.length;
     this.isLoading = false;
   }
+  
 
   ngAfterViewInit() {
     this.createChart();

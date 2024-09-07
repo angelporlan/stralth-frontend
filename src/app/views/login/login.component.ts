@@ -18,6 +18,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
+  isLoading = false;
 
   constructor(
     private authService: AuthService,
@@ -27,6 +28,7 @@ export class LoginComponent {
   ) { }
 
   loginUser() {
+    this.isLoading = true;
     this.authService.login(this.email, this.password).subscribe({
       next: (response) => {
         console.log('Login successful:', response);
@@ -50,6 +52,7 @@ export class LoginComponent {
       error: (error) => {
         console.error('Login error:', error);
         this.errorMessage = 'Login failed. Please check your credentials.';
+        this.isLoading = false;
       }
     });
   }

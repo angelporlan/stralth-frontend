@@ -12,12 +12,16 @@
   
         <button type="submit" class="login-button">Login</button>
 
+        <div *ngIf="errorMessage" class="error-message">
+          {{ errorMessage }}
+        </div>
+
         <div class="register-div">
           <p>You dont have account? <span (click)="goToRegister()">Sing up</span></p>
         </div>
     </form>
+
+    <img src="../../../assets/svg/loader.svg" alt="Loading..." *ngIf="isLoading" class="loader">
   
-    <div *ngIf="errorMessage" class="error-message">
-      {{ errorMessage }}
-    </div>
+
   

@@ -16,10 +16,12 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   errorMessage: string = '';
+  isLoading = false;
 
   constructor(private authService: AuthService, private router: Router) {}
 
   registerUser() {
+    this.isLoading = true;
     this.authService.register(this.name, this.email, this.password).subscribe({
       next: (response) => {
         console.log('Registration successful:', response);
@@ -29,6 +31,7 @@ export class RegisterComponent {
       error: (error) => {
         console.error('Registration error:', error);
         this.errorMessage = 'Registration failed. Please try again.';
+        this.isLoading = false;
       }
     });
   }
