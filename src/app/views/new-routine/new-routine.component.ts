@@ -46,7 +46,7 @@ export class NewRoutineComponent {
     console.log(routineData); 
     this.routinesService.postRoutine(this.authService.getToken(), routineData).subscribe(
       (data: any) => {
-        console.log('Routine saved:', data);
+        this.routinesService.addRoutineToLocalStorage(data);
         this.router.navigate(['/create-routine']);
       },
       (error: any) => {

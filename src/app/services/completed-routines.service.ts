@@ -24,4 +24,19 @@ export class CompletedRoutinesService {
     });
     return this.http.post(`${this.apiUrl}/${routineId}/complete`, completedRoutineData, { headers });
   }
+
+  getCompletedRoutinesFromLocalStorage(): any {
+    return JSON.parse(localStorage.getItem('currentCompletedRoutinesStralth') || '{}');
+  }
+
+  getCompletedRoutineByRoutineIdFromLocalStorage(routineId: string): any {
+    const currentCompletedRoutines = this.getCompletedRoutinesFromLocalStorage();
+    return currentCompletedRoutines.find((completedRoutine: any) => completedRoutine.routineId === routineId);
+  }
+
+  addCompletedRoutineToLocalStorage(completedRoutine: object): void {
+    const currentCompletedRoutines = this.getCompletedRoutinesFromLocalStorage();
+    currentCompletedRoutines.push(completedRoutine);
+    localStorage.setItem('currentCompletedRoutinesStralth', JSON.stringify(currentCompletedRoutines));
+  }
 }

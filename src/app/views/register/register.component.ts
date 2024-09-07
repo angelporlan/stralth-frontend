@@ -23,7 +23,7 @@ export class RegisterComponent {
     this.authService.register(this.name, this.email, this.password).subscribe({
       next: (response) => {
         console.log('Registration successful:', response);
-        localStorage.setItem('currentUser', JSON.stringify(response));
+        localStorage.setItem('currentUserStralth', JSON.stringify(response));
         this.router.navigate(['/home']);
       },
       error: (error) => {

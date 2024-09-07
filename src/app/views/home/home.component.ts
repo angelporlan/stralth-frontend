@@ -33,29 +33,16 @@ export class HomeComponent implements AfterViewInit {
 
   ngOnInit() {
     this.currentUser = this.authService.getUserFromLocalStorage();
-    this.routinesService.getRoutines(this.authService.getToken()).subscribe(
-      (data: any) => {
-        this.routineCounter = data.length;
-        this.isLoading = false;
-      },
-      (error: any) => {
-        console.error('Error getting routines:', error);
-        this.isLoading = false;
-      }
-    );
-    this.completedRoutinesService.getCompletedRoutines(this.authService.getToken()).subscribe(
-      (data: any) => {
-        this.completedRoutineCounter = data.length;
-        this.completedRoutine = data;
-        this.createChart(); 
-      },
-      (error: any) => {
-        console.error('Error getting completed routines:', error);
-      }
-    );
+    this.completedRoutine = this.completedRoutinesService.getCompletedRoutinesFromLocalStorage();
+
+    console.log('Completed routines:', this.completedRoutine);
+    this.completedRoutineCounter = this.completedRoutine.length;
+    this.isLoading = false;
   }
 
-  ngAfterViewInit() {}
+  ngAfterViewInit() {
+    this.createChart();
+  }
 
   createChart() {
     const last7Days = this.getLast7Days();
@@ -102,7 +89,7 @@ export class HomeComponent implements AfterViewInit {
           }]
         },
         options: {
-          indexAxis: 'y', // Cambiar el eje para un gráfico de barras horizontal
+          indexAxis: 'y', 
           responsive: true,
           plugins: {
             legend: {

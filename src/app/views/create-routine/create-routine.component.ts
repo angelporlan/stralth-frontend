@@ -29,21 +29,10 @@ export class CreateRoutineComponent implements OnInit {
    ) { }
 
   ngOnInit(): void {
-    this.getRoutines();
+    this.routines = this.RoutinesService.getRoutinesFromLocalStorage();
+    this.isLoading = false;
   }
 
-  getRoutines(): void {
-    this.RoutinesService.getRoutines(this.AuthService.getToken()).subscribe(
-      (data: any[]) => {
-        this.routines = data;
-        this.isLoading = false;
-      },
-      (error: any) => {
-        console.error('Error fetching routines', error);
-        this.isLoading = false;
-      }
-    );
-  }
 
   onDeleteRoutine(routineId: string): void {
     this.dialogOpen = true;
@@ -54,10 +43,12 @@ export class CreateRoutineComponent implements OnInit {
     this.dialogOpen = false;
    }
   confirmDialog(): void { 
+    this.RoutinesService.deleteRoutineFromLocalStorage(this.localRoutineId);
+    this.routines = this.RoutinesService.getRoutinesFromLocalStorage();
+
     this.RoutinesService.deleteRoutine(this.AuthService.getToken(), this.localRoutineId).subscribe(
       (data: any) => {
         console.log('Routine deleted:', data);
-        window.location.reload();
       },
       (error: any) => {
         console.error('Error deleting routine:', error);

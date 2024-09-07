@@ -29,30 +29,31 @@ export class StartRoutineComponent {
   ) {}
 
   ngOnInit() {
-    const routineId = this.route.snapshot.paramMap.get('id');
+    const routineId = this.route.snapshot.paramMap.get('id'); 
     if (routineId) {
-      this.routinesService.getRoutineById(this.authService.getToken(), routineId).subscribe(
-        (data: any) => {
-          this.routine = {
-            ...data,
-            exercises: data.exercises.map((exercise: string) => ({
-              name: exercise,
-              sets: [
-                { weight: null, reps: null }, // Set inicial vacío
-                { weight: null, reps: null }, // Set inicial vacío
-                { weight: null, reps: null }  // Set inicial vacío
-              ]
-            }))
-          };
-        },
-        (error: any) => {
-          console.error('Error getting routine:', error);
-        }
-      );
+      const routine = this.routinesService.getRoutineByIdFromLocalStorage(routineId);
+  
+      if (routine) {
+        this.routine = {
+          ...routine,
+          exercises: routine.exercises.map((exercise: string) => ({
+            name: exercise,
+            sets: [
+              { weight: null, reps: null }, 
+              { weight: null, reps: null }, 
+              { weight: null, reps: null }  
+            ]
+          }))
+        };
+        console.log('Routine loaded from localStorage:', this.routine);
+      } else {
+        console.error('Routine not found in localStorage');
+      }
     } else {
-      // aviso de error
+      console.error('No routine ID provided in the route.');
     }
   }
+  
 
   addSet(exercise: any) {
     exercise.sets.push({ weight: null, reps: null });
@@ -64,8 +65,8 @@ export class StartRoutineComponent {
 
   saveRoutine() {
     console.log('Rutina guardada:', this.routine);
-    this.completedRoutinesService.postCompletedRoutine(this.authService.getToken(), this.routine._id, {
-      routineId: this.routine._id,
+    const completedRoutine = {
+      routine: this.routine,
       exercises: this.routine.exercises.map((exercise: any) => ({
         name: exercise.name,
         sets: exercise.sets.map((set: any) => ({
@@ -73,10 +74,12 @@ export class StartRoutineComponent {
           reps: set.reps
         }))
       }))
-    }).subscribe(
+    };
+    this.completedRoutinesService.addCompletedRoutineToLocalStorage(completedRoutine);
+    this.router.navigate(['/home']);
+    this.completedRoutinesService.postCompletedRoutine(this.authService.getToken(), this.routine._id, completedRoutine).subscribe(
       (data: any) => {
-        console.log('Rutina completada guardada:', data);
-        this.router.navigate(['/home']);
+        console.log('Rutina completada guardadaaa:', data);
       },
       (error: any) => {
         console.error('Error saving completed routine:', error);

@@ -27,11 +27,13 @@ export class AuthService {
   }
 
   getUserFromLocalStorage(): any {
-    return JSON.parse(localStorage.getItem('currentUser') || '{}');
+    return JSON.parse(localStorage.getItem('currentUserStralth') || '{}');
   }
 
   logout(): void {
-    localStorage.removeItem('currentUser');
+    localStorage.removeItem('currentUserStralth');
+    localStorage.removeItem('currentRoutinesStralth');
+    localStorage.removeItem('currentCompletedRoutinesStralth');
   }
 
   getToken(): string {

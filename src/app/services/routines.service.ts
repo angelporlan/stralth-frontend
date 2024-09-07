@@ -38,4 +38,25 @@ export class RoutinesService {
     });
     return this.http.get(`${this.apiUrl}/${routineId}`, { headers });
   }
+
+  getRoutinesFromLocalStorage(): any {
+    return JSON.parse(localStorage.getItem('currentRoutinesStralth') || '{}');
+  }
+
+  getRoutineByIdFromLocalStorage(routineId: string): any {
+    const currentRoutines = this.getRoutinesFromLocalStorage();
+    return currentRoutines.find((routine: any) => routine._id === routineId);
+  }
+
+  addRoutineToLocalStorage(routine: object): void {
+    const currentRoutines = this.getRoutinesFromLocalStorage();
+    currentRoutines.push(routine);
+    localStorage.setItem('currentRoutinesStralth', JSON.stringify(currentRoutines));
+  }
+
+  deleteRoutineFromLocalStorage(routineId: string): void {
+    const currentRoutines = this.getRoutinesFromLocalStorage();
+    const newRoutines = currentRoutines.filter((routine: any) => routine._id !== routineId);
+    localStorage.setItem('currentRoutinesStralth', JSON.stringify(newRoutines));
+  }
 }

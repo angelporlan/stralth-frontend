@@ -30,37 +30,30 @@ export class StatsRoutineComponent implements AfterViewInit {
 
   ngOnInit() {
     const routineId = this.route.snapshot.paramMap.get('id');
-    this.completedRoutinesService.getCompletedRoutines(this.authService.getToken()).subscribe(
-      (data: any) => {
-        this.completedRoutine = data.filter((routine: any) => routine.routine._id === routineId);
 
-        if (this.completedRoutine.length > 0) {
-          this.routineName = this.completedRoutine[0].routine.name;
+    const completedRoutines = this.completedRoutinesService.getCompletedRoutinesFromLocalStorage();
+    this.completedRoutine = completedRoutines.filter((routine: any) => routine.routine._id === routineId);
 
-          this.exercisesRoutine = this.completedRoutine[0].exercises.map((exercise: any) => exercise.name);
+    if (this.completedRoutine.length > 0) {
+      this.routineName = this.completedRoutine[0].routine.name;
+      this.exercisesRoutine = this.completedRoutine[0].exercises.map((exercise: any) => exercise.name);
 
-          this.exerciseChartsData = this.exercisesRoutine.map((exerciseName: string) => {
-            return {
-              exerciseName: exerciseName,
-              chartData: this.generateExerciseData(exerciseName)
-            };
-          });
+      this.exerciseChartsData = this.exercisesRoutine.map((exerciseName: string) => {
+        return {
+          exerciseName: exerciseName,
+          chartData: this.generateExerciseData(exerciseName)
+        };
+      });
 
-          this.isLoading = false;
-        }
-      },
-      (error: any) => {
-        console.error('Error getting completed routines:', error);
-        this.isLoading = false;
-
-      }
-    );
+      this.isLoading = false;
+    } else {
+      console.error('No completed routines found for the given routine ID');
+      this.isLoading = false;
+    }
   }
 
   ngAfterViewInit() {
-    this.exerciseCharts.changes.subscribe(() => {
-      this.renderCharts();
-    });
+    this.renderCharts();
   }
 
   generateExerciseData(exerciseName: string) {
