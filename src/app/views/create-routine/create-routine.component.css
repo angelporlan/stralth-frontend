@@ -57,7 +57,11 @@ h1 {
 
 app-dialog-box {
     position: absolute;
-    top: calc(50% - 70px);
-    width: 100%;
-    margin-left: 12px;
+    top: calc(50% - 50px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; 
+    max-width: 500px; 
+    padding: 0;
+    box-sizing: border-box;
 }
